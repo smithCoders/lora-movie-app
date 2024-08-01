@@ -11,7 +11,7 @@ const CustomeButton = ({ title, containerStyle, handlePress, isLoading }) => {
       activeOpacity={0.7}
       disabled={isLoading}
     >
-      <Text className="text-primary fonet-psemibold text-lg capitalize">
+      <Text className="text-primary font-psemibold text-lg capitalize">
         {title}
       </Text>
     </TouchableOpacity>
