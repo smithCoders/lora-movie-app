@@ -4,7 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import images from "../../constants/images";
 import FormField from "../../components/FormField";
 import CustomeButton from "../../components/CustomeButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+
 const SignIn = () => {
   const [form, setForm] = useState({
     email: "",
@@ -13,6 +14,12 @@ const SignIn = () => {
   const [submutting, setSubmitting] = useState(false);
   const handleSubmit = () => {
     console.log(form);
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+    }, 3000);
+    // // navigate to home screen.
+    // navigation.navigate("home");
   };
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -44,7 +51,7 @@ const SignIn = () => {
           <CustomeButton
             title={"Log in"}
             containerStyle={"w-full mt-7"}
-            handlePress={handleSubmit}
+            handlePress={() => router.push("/home")}
             isLoading={submutting}
           />
           <Text className="text-[14px] text-gray-100 leading-5 text-center mt-6 font-psemibold">
